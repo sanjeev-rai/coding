@@ -1,6 +1,6 @@
 package linkedList;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Node<T> {
 

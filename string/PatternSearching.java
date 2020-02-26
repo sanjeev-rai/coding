@@ -1,4 +1,4 @@
-package string2;
+package string;
 
 import java.io.*;
 public class PatternSearching

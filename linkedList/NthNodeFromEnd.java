@@ -57,8 +57,7 @@ public class NthNodeFromEnd {
 			}else {
 				temp.setNext(prev);
 			}
-				
-			
 		}
+		return null;
 	}
 }

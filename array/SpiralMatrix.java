@@ -1,4 +1,4 @@
-package array2;
+package array;
 
 import java.util.ArrayList;
 
@@ -66,20 +66,23 @@ public class SpiralMatrix {
         int istart=0, ilast=A, jstart=0, jlast=A, value = 1;
         while(istart<ilast && jstart<jlast) {
             for(int i=jstart;i<jlast;i++)
-                list.get(istart).add(i, value++);
+                list.get(istart).set(i, value++);
             istart++;
             
             for(int i=istart;i<ilast;i++)
-                list.get(i).add(jlast-1, value++);
+                list.get(i).set(jlast-1, value++);
             jlast--;
             
-            for(int i=jlast-1;i>=jstart;i--)
-                list.get(ilast-1).add(i, value++);
-            ilast--;
-            
-            for(int i=ilast-1;i>=istart;i--)
-                list.get(i).add(jstart, value++);
-            jstart++;
+            if (ilast>istart) {
+				for (int i = jlast - 1; i >= jstart; i--)
+					list.get(ilast - 1).set(i, value++);
+				ilast--;
+			}
+			if (jstart<jlast) {
+				for (int i = ilast - 1; i >= istart; i--)
+					list.get(i).set(jstart, value++);
+				jstart++;
+			}
         }
         return list;
     }
